@@ -16,4 +16,7 @@ func main() {
 	fmt.Println(myQueue.IsEmpty())
 	fmt.Println(myQueue.Pop())
 	fmt.Println(myQueue.IsEmpty())
+
+	myQueue.Push("abc")
+	fmt.Println(myQueue.Pop())
 }

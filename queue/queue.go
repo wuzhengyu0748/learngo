@@ -1,12 +1,12 @@
 package queue
 
-type Queue []int
+type Queue []interface{}
 
-func (q *Queue) Push(v int) {
+func (q *Queue) Push(v interface{}) {
 	*q = append(*q, v)
 }
 
-func (q *Queue) Pop() int {
+func (q *Queue) Pop() interface{} {
 	last := (*q)[len(*q) - 1]
 	*q = (*q)[:len(*q) - 1]
 	return last
