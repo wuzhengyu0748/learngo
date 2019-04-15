@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"wuzhengyu/learngo/errhandling/filelistingserver/filelisting"
 	"os"
-	log2 "github.com/gpmgo/gopm/modules/log"
+	_ "net/http/pprof"
 	"log"
 )
 
@@ -22,7 +22,7 @@ func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 		}()
 		err := handler(write, request)
 		if err != nil {
-			log2.Warn("Error handling request: %s", err.Error())
+			log.Printf("Error handling request: %s", err.Error())
 
 			if userErr, ok := err.(userError); ok{
 				http.Error(write, userErr.Message(),http.StatusBadRequest)
